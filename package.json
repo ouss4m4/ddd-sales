@@ -4,6 +4,7 @@
   "description": "Domain Drive Design API to manages minimal sales orders creation",
   "main": "index.ts",
   "scripts": {
+    "build": "rimraf dist && tsc",
     "dev": "ts-node-dev --respawn --transpile-only ./src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
