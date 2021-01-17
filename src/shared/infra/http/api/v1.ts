@@ -9,8 +9,8 @@ v1Router.get("/", (req, res) => {
   return res.json({ message: "Api is up and running" });
 });
 
-v1Router.use("/clients", clientsRouter);
-v1Router.use("/users", itemsRouter);
-v1Router.use("/orders", ordersRouter);
+v1Router.use("/client", clientsRouter);
+v1Router.use("/user", itemsRouter);
+v1Router.use("/order", ordersRouter);
 
 export { v1Router };

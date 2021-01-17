@@ -3,7 +3,7 @@ import { BaseController } from "../../../../shared/infra";
 import { GetClientDetails } from "./getClientDetails.usecase";
 import { GetClientDTO } from "./getClientDTO";
 
-export class CreateUserController extends BaseController {
+export class GetClientDetailsController extends BaseController {
   private useCase: GetClientDetails;
   constructor(useCase: GetClientDetails) {
     super();
@@ -11,7 +11,7 @@ export class CreateUserController extends BaseController {
   }
 
   public async executeImpl(req: Request, res: Response) {
-    const dto: GetClientDTO = req.body as GetClientDTO;
+    const dto: GetClientDTO = { ClientCode: req.params.ClientCode };
 
     try {
       const resOrError = await this.useCase.execute(dto);
