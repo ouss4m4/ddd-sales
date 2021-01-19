@@ -11,7 +11,7 @@ export class GetClientDetails
     dto: GetClientDTO
   ): Promise<Result<Client, UseCaseError>> {
     try {
-      const client = await this.clientRepo.getClientDetails(dto);
+      const client = await this.clientRepo.getDetails(dto);
       return new Success<Client>(client);
     } catch (error) {
       return new Fail<UseCaseError>(error);

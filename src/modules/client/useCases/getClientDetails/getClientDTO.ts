@@ -1,3 +1,3 @@
 export interface GetClientDTO {
-  ClientCode: string;
+  clientCode: string;
 }
