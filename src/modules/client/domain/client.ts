@@ -1,6 +1,7 @@
 interface clientProps {
-  ClientName: string;
-  ClientCode: string;
+  clientName: string;
+  clientCode: string;
+  email: string;
 }
 
 export class Client {
@@ -9,12 +10,15 @@ export class Client {
     this.props = props;
   }
 
-  public get ClientName() {
-    return this.props.ClientName;
+  public get clientName() {
+    return this.props.clientName;
   }
 
-  public get ClientCode() {
-    return this.props.ClientCode;
+  public get email() {
+    return this.props.email;
+  }
+  public get clientCode() {
+    return this.props.clientCode;
   }
 
   public static create(data: clientProps) {

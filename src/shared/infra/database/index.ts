@@ -1,4 +1,4 @@
-import mongoose, { Schema, model } from 'mongoose';
+import mongoose, { Schema, model } from "mongoose";
 
 // $ENV:dbpass=""; npm run dev
 
@@ -9,6 +9,6 @@ export const connectdb = () =>
   mongoose
     .connect(db, { useNewUrlParser: true })
     .then(() => {
-      console.log('db connected');
+      console.log("db connected");
     })
     .catch((err) => console.log(err));

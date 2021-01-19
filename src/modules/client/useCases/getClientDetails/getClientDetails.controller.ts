@@ -11,7 +11,7 @@ export class GetClientDetailsController extends BaseController {
   }
 
   public async executeImpl(req: Request, res: Response) {
-    const dto: GetClientDTO = { ClientCode: req.params.ClientCode };
+    const dto: GetClientDTO = { clientCode: req.params.code };
 
     try {
       const resOrError = await this.useCase.execute(dto);
