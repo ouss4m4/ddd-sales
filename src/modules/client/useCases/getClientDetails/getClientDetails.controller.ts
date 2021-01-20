@@ -19,7 +19,7 @@ export class GetClientDetailsController extends BaseController {
         // add client mapper later
         this.ok(res, resOrError.value);
       } else {
-        return this.fail(res, resOrError.error.message);
+        this.fail(res, resOrError.error.message);
       }
     } catch (err) {
       this.fail(res, err);
