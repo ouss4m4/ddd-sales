@@ -10,7 +10,7 @@ v1Router.get("/", (req, res) => {
 });
 
 v1Router.use("/client", clientsRouter);
-v1Router.use("/user", itemsRouter);
+v1Router.use("/item", itemsRouter);
 v1Router.use("/order", ordersRouter);
 
 export { v1Router };

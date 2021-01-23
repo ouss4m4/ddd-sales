@@ -1,6 +1,6 @@
 import { Fail, Result, Success } from "../../../../shared/core/result";
 import { UseCase, UseCaseError } from "../../../../shared/core/usecase";
-import { Client } from "../../domain/client";
+import { Client } from "../../domain/client.entity";
 import { IClientRepo } from "../../repo/clientRepo";
 import { GetClientDTO } from "./getClientDTO";
 
