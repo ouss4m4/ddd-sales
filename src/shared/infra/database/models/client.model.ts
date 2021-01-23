@@ -13,7 +13,7 @@ interface ClientModel extends Model<ClientBaseDocument> {
 
 const ClientSchema = new Schema({
   clientName: { type: String, required: true },
-  clientCode: { type: String, required: true },
+  clientCode: { type: String, required: true, index: { unique: true } },
   email: { type: String, required: true },
 });
 
