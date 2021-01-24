@@ -11,9 +11,10 @@ clientsRouter.get("/", async (req, res) => {
   res.send(result);
 });
 
-clientsRouter.get("/:code", (req, res) => {
+clientsRouter.get("/:id", (req, res) => {
   getClientDetailsController.execute(req, res);
 });
+
 clientsRouter.delete("/:id", (req, res) => {
   deleteClientController.execute(req, res);
 });
