@@ -21,7 +21,7 @@ ClientSchema.statics.findByClientId = function findByClientId(
   id: string,
   cb: any
 ): ClientBaseDocument {
-  return this.findOne({ clientId: id }, cb);
+  return this.findOne({ clientCode: id }, cb);
 };
 
 export const ClientModel = model<ClientBaseDocument, ClientModel>(

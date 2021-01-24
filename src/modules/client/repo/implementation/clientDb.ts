@@ -1,4 +1,3 @@
-import { ISuccess } from "../../../../shared/core/successResp";
 import { ClientModel } from "../../../../shared/infra/database/models/client.model";
 import { Client } from "../../domain/client.entity";
 import { CreateClientDTO } from "../../useCases/createClient/createClientDTO";
@@ -14,22 +13,24 @@ export class ClientRepo implements IClientRepo {
       throw new Error(error);
     }
   }
-  public async create(data: CreateClientDTO): Promise<any> {
+  public async create(data: CreateClientDTO): Promise<Client> {
     // assume data is correct at this point.
     try {
-      const client = await ClientModel.create(data);
+      const clientDoc = await ClientModel.create(data);
+      const client = Client.create(clientDoc);
       return client;
     } catch (error) {
       throw new Error(error);
     }
   }
   public async getDetails(data: GetClientDTO): Promise<Client> {
-    const res = await ClientModel.findByClientId(data.clientCode);
-    if (res) {
-      const client = Client.create(res);
+    try {
+      console.log("fetching ", data.clientCode);
+      const clientDoc = await ClientModel.findByClientId(data.clientCode);
+      const client = Client.create(clientDoc);
       return client;
-    } else {
-      throw new Error("client not found");
+    } catch (error) {
+      throw new Error(error);
     }
   }
 }

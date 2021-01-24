@@ -7,7 +7,7 @@ let db = `mongodb+srv://bzouss:${dbpass}@sales-cluster.pjvvs.mongodb.net/salesdb
 
 export const connectdb = () =>
   mongoose
-    .connect(db, { useNewUrlParser: true })
+    .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
       console.log("db connected");
     })

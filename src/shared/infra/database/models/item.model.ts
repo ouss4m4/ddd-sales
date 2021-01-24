@@ -3,7 +3,7 @@ import { Schema, Document, model, Model } from "mongoose";
 interface IItem {
   itemName: string;
   itemCode: string;
-  stockQty: string;
+  stockQty: number;
 }
 interface ItemBaseDocument extends IItem, Document {}
 
@@ -24,7 +24,4 @@ ItemSchema.statics.findByItemCode = function findByItemCode(
   return this.findOne({ itemCode: id }, cb);
 };
 
-export const ItemModel = model<ItemBaseDocument, ItemModel>(
-  "Item",
-  ItemSchema
-);
+export const ItemModel = model<ItemBaseDocument, ItemModel>("Item", ItemSchema);
