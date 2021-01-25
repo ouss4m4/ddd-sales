@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { BaseController } from "../../../../shared/infra";
 
 import { CreateClientUseCase } from "./createClient.usecase";
-import { CreateClientDTO } from "./CreateClientDTO";
+import { CreateClientDTO } from "./createClientDTO";
 
 export class CreateClientController extends BaseController {
   constructor(private useCase: CreateClientUseCase) {
