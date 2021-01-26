@@ -2,16 +2,15 @@ import { Fail, Result, Success } from "../../../../shared/core/result";
 import { UseCase, UseCaseError } from "../../../../shared/core/usecase";
 import { Item } from "../../domain/item.entity";
 import { IItemRepo } from "../../repo/itemRepo";
-import { CreateItemDTO } from "./createItemDTO";
+import { EditItemDTO } from "./editItemDTO";
 
-export class CreateItemUseCase
-  implements UseCase<CreateItemDTO, Result<Item, UseCaseError>> {
+export class EditItem
+  implements UseCase<EditItemDTO, Result<Item, UseCaseError>> {
   constructor(private itemRepo: IItemRepo) {}
-  public async execute(
-    dto: CreateItemDTO
-  ): Promise<Result<Item, UseCaseError>> {
+
+  public async execute(dto: EditItemDTO) {
     try {
-      const response = await this.itemRepo.create(dto);
+      const response = await this.itemRepo.edit(dto);
       return new Success<Item>(response);
     } catch (error) {
       return new Fail<UseCaseError>(error);

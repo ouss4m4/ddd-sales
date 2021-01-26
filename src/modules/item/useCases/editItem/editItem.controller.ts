@@ -1,17 +1,15 @@
 import { Request, Response } from "express";
-import { Fail } from "../../../../shared/core/result";
-import { UseCaseError } from "../../../../shared/core/usecase";
 import { BaseController } from "../../../../shared/infra";
-import { GetClientDetails } from "./getItem.usecase";
-import { GetItemDTO } from "./getItemDTO";
-export class GetItemController extends BaseController {
-  constructor(private useCase: GetClientDetails) {
+import { EditItem } from "./editItem.usecase";
+import { EditItemDTO } from "./editItemDTO";
+export class EditItemController extends BaseController {
+  constructor(private useCase: EditItem) {
     super();
   }
 
-  public async executeImpl(req: Request, res: Response) {
+  public async executeImpl(req: Request, res: Response): Promise<void> {
     try {
-      const dto: GetItemDTO = { itemCode: req.params.id };
+      const dto: EditItemDTO = req.body;
       const resOrError = await this.useCase.execute(dto);
       if (resOrError.isSuccess()) {
         // add client mapper later to remove props

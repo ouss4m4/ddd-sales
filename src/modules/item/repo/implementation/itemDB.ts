@@ -1,10 +1,20 @@
 import { ItemModel } from "../../../../shared/infra/database/models/item.model";
 import { Item } from "../../domain/item.entity";
 import { CreateItemDTO } from "../../useCases/createItem/createItemDTO";
+import { EditItemDTO } from "../../useCases/editItem/editItemDTO";
 import { GetItemDTO } from "../../useCases/getItem/getItemDTO";
 import { IItemRepo } from "../itemRepo";
 
 export class ItemRepo implements IItemRepo {
+  public async edit({ itemCode, itemName, stockQty }: EditItemDTO): Promise<Item> {
+    try {
+      const itemDocument = await ItemModel.findOneAndUpdate({ itemCode }, { itemName, stockQty }, { new: true });
+      const item = Item.create(itemDocument);
+      return item;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
   public async getById(dto: GetItemDTO): Promise<Item> {
     try {
       const itemDocument = await ItemModel.findByItemCode(dto.itemCode);
