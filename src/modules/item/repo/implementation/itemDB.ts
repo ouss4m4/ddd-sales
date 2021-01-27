@@ -4,9 +4,18 @@ import { CreateItemDTO } from "../../useCases/createItem/createItemDTO";
 import { DeleteItemDTO } from "../../useCases/deleteItem/deleteItemDTO";
 import { EditItemDTO } from "../../useCases/editItem/editItemDTO";
 import { GetItemDTO } from "../../useCases/getItem/getItemDTO";
+import { GetItemsListDTO } from "../../useCases/getItemsList/getItemsListDTO";
 import { IItemRepo } from "../itemRepo";
 
 export class ItemRepo implements IItemRepo {
+  public async getList(dto: GetItemsListDTO): Promise<Item[]> {
+    try {
+      const docList = await ItemModel.find({ itemName: { $regex: dto.itemName, $options: "i" } });
+      return docList.map((doc: any) => Item.create(doc));
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
   public async delete({ itemCode }: DeleteItemDTO): Promise<any> {
     try {
       const itemDocument = await ItemModel.findOneAndDelete({ itemCode });
