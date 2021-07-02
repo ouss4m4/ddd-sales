@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { BaseController } from "../../../shared/infra";
+import { BaseController } from "../../../../shared/infra";
 import { CreateOrderUseCase } from "./createOrder";
 import { CreateOrderDTO } from "./createOrderDTO";
 
