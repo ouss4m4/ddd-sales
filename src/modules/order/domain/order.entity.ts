@@ -4,17 +4,11 @@ interface IOrderProps {
 }
 
 export class Order {
-  private readonly props;
+  ClientCode: string;
+  Items: any[];
   private constructor(props: IOrderProps) {
-    this.props = props;
-  }
-
-  public get ClientCode() {
-    return this.props.ClientCode;
-  }
-
-  public get Items() {
-    return this.props.Items;
+    this.ClientCode = props.ClientCode;
+    this.Items = props.Items;
   }
 
   public static create(data: IOrderProps) {
