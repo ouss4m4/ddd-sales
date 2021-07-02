@@ -11,16 +11,16 @@ interface ItemModel extends Model<ItemBaseDocument> {
   findByItemCode(id: string): Promise<ItemBaseDocument>;
 }
 
-const ItemSchema = new Schema({
-  itemName: { type: String, required: true },
-  itemCode: { type: String, required: true, index: { unique: true } },
-  stockQty: { type: Number, default: 0 },
-});
+const ItemSchema = new Schema(
+  {
+    itemName: { type: String, required: true },
+    itemCode: { type: String, required: true, index: { unique: true } },
+    stockQty: { type: Number, default: 0 },
+  },
+  { timestamps: true }
+);
 
-ItemSchema.statics.findByItemCode = function findByItemCode(
-  id: string,
-  cb: any
-): ItemBaseDocument {
+ItemSchema.statics.findByItemCode = function findByItemCode(id: string, cb: any): ItemBaseDocument {
   return this.findOne({ itemCode: id }, cb);
 };
 
