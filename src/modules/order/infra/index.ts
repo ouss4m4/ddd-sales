@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createOrderController } from "../usecase";
+import { createOrderController } from "../usecases/createOrder";
 
 const ordersRouter = Router();
 

@@ -25,7 +25,6 @@ export class ClientRepo implements IClientRepo {
   }
   public async getDetails(data: GetClientDTO): Promise<Client> {
     try {
-      console.log("fetching ", data.clientCode);
       const clientDoc = await ClientModel.findByClientId(data.clientCode);
       const client = Client.create(clientDoc);
       return client;
