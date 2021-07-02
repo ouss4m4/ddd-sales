@@ -9,7 +9,11 @@ export class CreateOrderUseCase implements UseCase<CreateOrderDTO, Result<Order,
   public async execute(dto: CreateOrderDTO): Promise<Result<Order, UseCaseError>> {
     try {
       const response = await this.orderRepo.create(dto);
-      return new Success<Order>(response);
+      if (response.isSuccess()) {
+        return response;
+      } else {
+        return new Fail<UseCaseError>(response.error);
+      }
     } catch (error) {
       return new Fail<UseCaseError>(error);
     }

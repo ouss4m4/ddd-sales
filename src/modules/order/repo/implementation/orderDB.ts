@@ -6,8 +6,14 @@ import { CreateOrderDTO } from "../../usecases/createOrder/createOrderDTO";
 import { IOrderRepo } from "../orderRepo";
 
 export class OrderRepo implements IOrderRepo {
-  public async getAll(): Promise<Order[]> {
-    throw new Error("Method not implemented.");
+  public async getAll(): Promise<any> {
+    try {
+      const orderDocument = await OrderModel.find();
+      const result = orderDocument.map((raw: any) => Order.create(raw));
+      return result;
+    } catch (error) {
+      throw new Fail<Error>(new Error(error));
+    }
   }
   public async create(dto: CreateOrderDTO): Promise<Result<Order, Error>> {
     try {
