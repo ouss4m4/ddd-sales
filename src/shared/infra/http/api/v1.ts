@@ -8,9 +8,9 @@ const v1Router = express.Router();
 v1Router.get("/", (req, res) => {
   return res.json({
     message: "Api is up and running",
-    "user": "/api/v1/client",
-    "item": "/api/v1/item",
-    "order": "/api/v1/client"
+    user: "/api/v1/client",
+    item: "/api/v1/item",
+    order: "/api/v1/order",
   });
 });
 
