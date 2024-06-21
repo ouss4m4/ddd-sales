@@ -20,7 +20,7 @@ export class GetClientDetailsController extends BaseController {
       } else {
         this.fail(res, resOrError.error.message);
       }
-    } catch (err) {
+    } catch (err: any) {
       this.fail(res, err);
     }
   }

@@ -14,7 +14,7 @@ export class CreateOrderUseCase implements UseCase<CreateOrderDTO, Result<Order,
       } else {
         return new Fail<UseCaseError>(response.error);
       }
-    } catch (error) {
+    } catch (error: any) {
       return new Fail<UseCaseError>(error);
     }
   }

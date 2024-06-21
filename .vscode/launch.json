@@ -1,0 +1,34 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Debug ddd-sales",
+        "type": "node",
+        "request": "launch",
+        "program": "${workspaceFolder}/dist/index.js",
+        "preLaunchTask": "build",
+        "skipFiles": ["<node_internals>/**"],
+        "sourceMaps": true,
+        "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+        "runtimeArgs": ["--nolazy"],
+        "restart": true,
+        "console": "integratedTerminal",
+        "internalConsoleOptions": "neverOpen",
+        "cwd": "${workspaceFolder}"
+      },
+      {
+        "name": "Debug ddd-sales (TS)",
+        "type": "node",
+        "request": "launch",
+        "program": "${workspaceFolder}/node_modules/ts-node-dev/lib/bin.js",
+        "args": ["--respawn", "--transpile-only", "./src/index.ts"],
+        "runtimeArgs": ["--nolazy"],
+        "sourceMaps": true,
+        "console": "integratedTerminal",
+        "internalConsoleOptions": "neverOpen",
+        "restart": true,
+        "cwd": "${workspaceFolder}"
+      }
+    ]
+  }
+  

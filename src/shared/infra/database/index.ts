@@ -3,7 +3,7 @@ import mongoose, { Schema, model } from "mongoose";
 // $ENV:dbpass=""; npm run dev
 
 const dbpass = process.env.dbpass;
-let db = `mongodb+srv://bzouss:dddsales@sales-cluster.pjvvs.mongodb.net/salesdb?retryWrites=true&w=majority`;
+let db = `mongodb+srv://oussama:oussama@ddd-sales.j6ctwl2.mongodb.net/?retryWrites=true&w=majority&appName=ddd-sales`;
 
 export const connectdb = () =>
   mongoose
